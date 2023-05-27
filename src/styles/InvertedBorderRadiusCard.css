@@ -1,0 +1,91 @@
+.card {
+    width: 400px;
+    height: 500px;
+    row-gap: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+    --radius: 20px;
+    --row-gap: 10px;
+}
+
+.card .image {
+    width: 100%;
+    height: 200px;
+    background: url('../assets/images/invertedCard/Guardianes.jpeg');
+    background-size: cover;
+    border-radius: 10px;
+    display: flex;
+    position: relative; /*Se debe establecer para poder usar pseudolementos con position absolute en la imagen*/
+}
+
+.card .content {
+    display: flex;
+    flex: 1;
+    background-color: #232949;
+    width: 100%;
+    position: relative;
+    border-radius: 10px;
+    border-top-left-radius: 0px; /*Se deja en 0, ya que se usa un pseudo elemento para agregar efecto de extensiòn del div de content*/
+}
+
+.card .content .extension {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 0px;
+    width: 50%; /*Debe abarcar la mitad par apoder ubicar los cìrculos para el redondeo de la imagen.*/
+    height: 60px;
+    background-color: #232949;
+    border-top: 10px solid white; /*El grosor de la lìnea debe coincidir con el GAP. Ademàs, el color debe coincidir con el fondo.*/
+    border-right: 10px solid white;
+    border-top-right-radius: var(--radius);
+    border-top-left-radius: var(--radius);
+}
+
+
+/*REDONDEOS*/
+
+.card .content .extension::after {
+    /*El borde radio externo.*/
+    content: '';
+    position: absolute;
+    border-radius: 50%; 
+    background-color: transparent;
+    width: var(--radius); /*Width y Height deben ser del tamaño de los border radius definidos. */
+    height: var(--radius);
+    right: calc(0px - var(--radius)); /*El tamaño de los border radius definidos. */
+    bottom: 0px;
+    box-shadow: -10px 10px 0 #232949; /*Esconde la esquina sobrante del div extension*/
+     /*Box Shadow queda por debajo del bg del componente padre*/
+}
+
+.card .image::before {
+    content: '';
+    position: absolute;
+    border-radius: 50%; 
+    background-color: transparent;
+    width: var(--radius); /*Width y Height deben ser del tamaño de los border radius definidos. */
+    height: var(--radius);
+    left: 50%; /*Se usa Left en lugar de Right ya que left sì coloca el cìrculo en el lugar deseado en este caso. */
+    bottom: 0px;
+    box-shadow: -10px 10px 0 white; /*Esconde la esquina sobrante del div extension*/
+     /*Box Shadow queda por debajo del bg del componente padre*/
+    z-index: 10;
+}
+
+.card .content .extension::before {
+    /*Se usa extension ya que con solo usar el gap dado en CARD se puede ubicar el redondeo faltante de la imagen.*/
+    content: '';
+    position: absolute;
+    border-radius: 50%; 
+    background-color: transparent;
+    width: var(--radius); /*Width y Height deben ser del tamaño de los border radius definidos. */
+    height: var(--radius);
+    left: 0%;
+    bottom: calc(100% + 10px);
+    box-shadow: -10px 10px 0 white; /*Esconde la esquina sobrante del div extension*/
+     /*Box Shadow queda por debajo del bg del componente padre*/
+    z-index: 10;
+}
