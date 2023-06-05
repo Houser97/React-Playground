@@ -8,6 +8,11 @@
     padding: 0;
     --radius: 20px;
     --row-gap: 10px;
+    transition: transform 250ms ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.2);
 }
 
 .card .image {
@@ -41,11 +46,24 @@
     border-top: 10px solid white; /*El grosor de la lìnea debe coincidir con el GAP. Ademàs, el color debe coincidir con el fondo.*/
     border-right: 10px solid white;
     border-top-right-radius: var(--radius);
-    border-top-left-radius: var(--radius);
 }
 
 
 /*REDONDEOS*/
+.card .content .extension::before {
+    /*Se usa extension ya que con solo usar el gap dado en CARD se puede ubicar el redondeo faltante de la imagen.*/
+    content: '';
+    position: absolute;
+    border-radius: 50%; 
+    background-color: #232949;
+    width: var(--radius); /*Width y Height deben ser del tamaño de los border radius definidos. */
+    height: var(--radius);
+    left: 0%;
+    top: 0%;
+    box-shadow: -10px -10px 0 white; /*Esconde la esquina sobrante del div extension*/
+     /*Box Shadow queda por debajo del bg del componente padre*/
+    z-index: 10;
+}
 
 .card .content .extension::after {
     /*El borde radio externo.*/
@@ -55,7 +73,7 @@
     background-color: transparent;
     width: var(--radius); /*Width y Height deben ser del tamaño de los border radius definidos. */
     height: var(--radius);
-    right: calc(0px - var(--radius)); /*El tamaño de los border radius definidos. */
+    left: 100%; /*El tamaño de los border radius definidos. */
     bottom: 0px;
     box-shadow: -10px 10px 0 #232949; /*Esconde la esquina sobrante del div extension*/
      /*Box Shadow queda por debajo del bg del componente padre*/
@@ -75,17 +93,3 @@
     z-index: 10;
 }
 
-.card .content .extension::before {
-    /*Se usa extension ya que con solo usar el gap dado en CARD se puede ubicar el redondeo faltante de la imagen.*/
-    content: '';
-    position: absolute;
-    border-radius: 50%; 
-    background-color: transparent;
-    width: var(--radius); /*Width y Height deben ser del tamaño de los border radius definidos. */
-    height: var(--radius);
-    left: 0%;
-    bottom: calc(100% + 10px);
-    box-shadow: -10px 10px 0 white; /*Esconde la esquina sobrante del div extension*/
-     /*Box Shadow queda por debajo del bg del componente padre*/
-    z-index: 10;
-}
