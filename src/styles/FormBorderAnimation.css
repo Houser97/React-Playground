@@ -14,6 +14,44 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background: repeating-conic-gradient(from var(--a), #ff2770 0%, #ff2770 5%, transparent 5%, transparent 35%, #ff2770 50%);
+    animation: animate 4s linear infinite;
+    border-radius: 20px;
+}
+
+.box::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: repeating-conic-gradient(from var(--a), #45f3ff 0%, #45f3ff 5%, transparent 5%, transparent 35%, #45f3ff 50%);
+    animation: animate 4s linear infinite;
+    border-radius: 20px;
+    animation-delay: -1000ms;
+}
+
+@property --a {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+}
+
+@keyframes animate {
+    0% {
+        --a: 0deg;
+    }
+    100% {
+        --a: 360deg;
+    }
+}
+
+.box::after {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    background: #2d2d39;
+    border-radius: 15px;
+    border: 9px solid #25252b;
 }
 
 .box form {
@@ -25,6 +63,7 @@
     flex-direction: column;
     gap: 20px;
     padding: 0 40px;
+    z-index: 1000; /*Para evitar que after oculte la informacion del formulario*/
 }
 
 .box form h2{
