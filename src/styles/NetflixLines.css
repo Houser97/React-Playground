@@ -1,0 +1,25 @@
+.netflix__container{
+    background: #111;
+    overflow: hidden;
+    height: 100%;
+}
+
+.lines{
+    position: absolute;
+    height: 100vh;
+    background-color: #ea0914;
+    z-index: 1000;
+    mix-blend-mode: color-dodge;
+    width: 50px;
+    animation: netflix 2s linear infinite;
+    left: 0;
+}
+
+@keyframes netflix {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
