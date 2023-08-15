@@ -1,5 +1,6 @@
 import './App.css'
 import FormBorderAnimation from './components/FormBorderAnimation'
+import HandScann from './components/HandScann'
 import Home from './components/Home'
 import InvertedBorderRadiusCard from './components/InvertedBorderRadiusCard'
 import Navbar from './components/Navbar'
@@ -12,6 +13,7 @@ function App() {
       <InvertedBorderRadiusCard />
       <FormBorderAnimation />
       <RainText />
+      <HandScann />
     </div>
   )
 }
