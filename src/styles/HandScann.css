@@ -94,7 +94,7 @@
     }
 }
 
-.scan .hand .lines::before {
+.scan .hand .lines::after {
     content: "";
     position: absolute;
     top: 0;
