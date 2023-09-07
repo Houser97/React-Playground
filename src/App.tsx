@@ -3,6 +3,7 @@ import FormBorderAnimation from './components/FormBorderAnimation'
 import GalleryHover from './components/GalleryHover'
 import HandScann from './components/HandScann'
 import Home from './components/Home'
+import HotCup from './components/HotCup'
 import InvertedBorderRadiusCard from './components/InvertedBorderRadiusCard'
 import Navbar from './components/Navbar'
 import NetflixLines from './components/NetflixLines'
@@ -11,6 +12,7 @@ import RainText from './components/RainText'
 function App() {
   return (
     <div className='app'>
+      <HotCup />
       <GalleryHover />
       <InvertedBorderRadiusCard />
       <FormBorderAnimation />
