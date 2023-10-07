@@ -7,12 +7,14 @@ import HotCup from './components/HotCup'
 import InvertedBorderRadiusCard from './components/InvertedBorderRadiusCard'
 import Navbar from './components/Navbar'
 import NetflixLines from './components/NetflixLines'
+import NavigationDots from './components/NagivationDots'
 import RainText from './components/RainText'
 import TextAnimation from './components/TextAnimation'
 //      <NetflixLines />
 function App() {
   return (
     <div className='app'>
+      <NavigationDots />
       <TextAnimation />
       <HotCup />
       <GalleryHover />
